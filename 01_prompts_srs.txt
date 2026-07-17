@@ -1,0 +1,205 @@
+===================================================================
+FILE: TOÀN BỘ PROMPT ĐÃ SỬ DỤNG - BÀI TẬP 02
+Môn học: AI in Application
+Sinh viên: Huỳnh Lã Tiến Lộc
+Chủ đề: Xây dựng tài liệu Đặc tả phần mềm (SRS) cho tính năng eKYC
+===================================================================
+
+--------------------------------------------------
+PROMPT 1: Cung cấp ngữ cảnh và khởi động tạo SRS
+--------------------------------------------------
+Tôi là Business Analyst của dự án eKYC cho ABC Bank.
+Ban Giám Đốc đã phê duyệt scope dựa trên kết quả phân tích nghiệp vụ.
+Nhiệm vụ tiếp theo là tạo tài liệu SRS (Software Requirements Specification)
+chính thức theo chuẩn IEEE 830 để bàn giao cho đội Development và QA.
+
+Hãy đóng vai một Senior System Analyst có kinh nghiệm viết tài liệu SRS
+cho các hệ thống FinTech phức tạp. Tôi sẽ cung cấp dữ liệu từ bước phân tích
+nghiệp vụ để bạn tổng hợp thành tài liệu SRS hoàn chỉnh.
+
+Dự án: Hệ thống eKYC (Electronic Know Your Customer) cho ABC Bank
+Scope: Module mở tài khoản ngân hàng trực tuyến 100% online
+
+[DỮ LIỆU ĐẦU VÀO TỪ BÀI 01]
+- Actors: New Customer, Existing Customer, OCR Engine, Face Recognition System,
+  CSDL Quốc gia API, Core Banking, AML System, KYC Review Officer, Admin
+- Luồng nghiệp vụ: 6 bước chính (Đăng ký → OTP → Chụp CCCD → Liveness → Xác minh → Cấp tài khoản)
+- Mục tiêu: Zero Manual Operation, hoàn thành trong 5 phút
+- FR: 28 yêu cầu chức năng thuộc 6 module
+- NFR: Bảo mật TLS 1.3, AES-256, Uptime 99.95%, Latency API ≤ 200ms
+- Tuân thủ: Thông tư 16/2020/TT-NHNN, Nghị định 13/2023/NĐ-CP
+
+Bạn đã nhận đủ thông tin chưa? Hãy xác nhận và bắt đầu tạo Phần 1 của SRS.
+
+--------------------------------------------------
+PROMPT 2: Tạo Phần 1 - Introduction
+--------------------------------------------------
+Tốt! Hãy tạo Phần 1 của tài liệu SRS:
+
+**PHẦN 1: INTRODUCTION (Giới thiệu chung)**
+
+Bao gồm các mục con bắt buộc:
+
+1.1 Purpose (Mục đích tài liệu)
+- Mục đích của tài liệu SRS này là gì?
+- Đối tượng độc giả là ai? (Dev, QA, PM, Stakeholders)
+
+1.2 Scope (Phạm vi hệ thống)
+- Phạm vi IN-SCOPE (những gì sẽ được xây dựng)
+- Phạm vi OUT-OF-SCOPE (những gì không thuộc phạm vi)
+- Các hệ thống tích hợp bên ngoài
+
+1.3 Definitions, Acronyms, Abbreviations
+Tạo bảng giải thích đầy đủ các thuật ngữ:
+eKYC, OCR, Liveness Check, Face Matching, AML, OTP, CCCD, NFC, SLA,
+CIF, Core Banking, CSDL Quốc gia, TLS, AES-256, JWT, PDPA...
+
+1.4 References (Tài liệu tham chiếu)
+Liệt kê các văn bản pháp lý, tiêu chuẩn kỹ thuật liên quan.
+
+Format: Markdown chuẩn với đánh số section rõ ràng.
+
+--------------------------------------------------
+PROMPT 3: Tạo Phần 2 - Overall Description
+--------------------------------------------------
+Tuyệt vời! Tiếp tục tạo Phần 2:
+
+**PHẦN 2: OVERALL DESCRIPTION (Mô tả tổng quan)**
+
+2.1 Product Perspective (Góc nhìn sản phẩm)
+- Hệ thống eKYC thuộc kiến trúc tổng thể nào của ABC Bank?
+- Vẽ Context Diagram (dưới dạng Mermaid) mô tả các hệ thống tích hợp
+
+2.2 Product Functions (Các chức năng chính)
+- Tóm tắt 5-7 chức năng core của hệ thống eKYC
+
+2.3 User Classes and Characteristics (Phân loại người dùng)
+Tạo bảng chi tiết với các đặc điểm:
+- Trình độ công nghệ
+- Tần suất sử dụng
+- Quyền hạn trong hệ thống
+
+2.4 Operating Environment (Môi trường vận hành)
+- Nền tảng: iOS 13+, Android 8.0+, Web Browser
+- Yêu cầu thiết bị: Camera, Internet
+- Hạ tầng server: Cloud (AWS/GCP/Azure hoặc On-premise)
+
+2.5 Design and Implementation Constraints (Ràng buộc)
+- Pháp lý: Thông tư 16/2020, Nghị định 13/2023
+- Công nghệ: Ngôn ngữ lập trình, framework
+- Tài nguyên: Timeline, Budget
+
+2.6 Assumptions and Dependencies
+Tóm tắt các giả định và phụ thuộc chính.
+
+--------------------------------------------------
+PROMPT 4: Tạo Phần 3 - Functional Requirements chi tiết
+--------------------------------------------------
+Tiếp tục tạo Phần 3 - phần quan trọng nhất của SRS:
+
+**PHẦN 3: SPECIFIC FUNCTIONAL REQUIREMENTS**
+
+Hãy mô tả chi tiết từng module theo cấu trúc chuẩn IEEE:
+
+MODULE 1: Đăng ký tài khoản (Registration Module)
+MODULE 2: Upload & Đọc CCCD (OCR Module)
+MODULE 3: Xác thực khuôn mặt (Biometric Module)
+MODULE 4: Kích hoạt tài khoản (Account Activation Module)
+
+Với MỖI MODULE, phải có:
+3.X.1 - Mô tả chức năng
+3.X.2 - Input/Output chi tiết
+3.X.3 - Luồng xử lý chính (sequence mô tả bằng text hoặc Mermaid)
+3.X.4 - Điều kiện tiên quyết (Pre-conditions)
+3.X.5 - Kết quả sau thực hiện (Post-conditions)
+3.X.6 - Quy tắc nghiệp vụ áp dụng (Business Rules)
+3.X.7 - Xử lý ngoại lệ (Error Handling)
+
+Sử dụng bảng và Mermaid diagram cho sequence diagram nếu phù hợp.
+
+--------------------------------------------------
+PROMPT 5: Tạo Phần 4 - Non-Functional Requirements
+--------------------------------------------------
+Tiếp tục với Phần 4:
+
+**PHẦN 4: NON-FUNCTIONAL REQUIREMENTS**
+
+Tôi cần NFR với chỉ số đo lường cụ thể (không dùng mô tả mơ hồ):
+
+4.1 Security Requirements (Bảo mật)
+- Mã hóa dữ liệu truyền tải: TLS version tối thiểu, thuật toán
+- Mã hóa lưu trữ: Thuật toán, key length
+- Xác thực API: JWT, API Key rotation policy
+- Bảo vệ DDOS: Rate limiting (X requests/minute)
+- Vulnerability scanning: Tần suất, công cụ
+
+4.2 Performance Requirements (Hiệu năng)
+- Response time cho từng API endpoint (P50, P95, P99)
+- Throughput: Số request/giây đồng thời
+- Xử lý OCR: Thời gian tối đa
+- Face Matching: Thời gian tối đa
+
+4.3 Availability Requirements (Tính sẵn sàng)
+- Uptime SLA: X%
+- RTO, RPO cụ thể
+- Maintenance window policy
+
+4.4 Scalability Requirements (Khả năng mở rộng)
+- Auto-scaling trigger conditions
+- Database partitioning strategy
+
+4.5 Usability Requirements (Tính sử dụng được)
+- Thời gian hoàn thành quy trình tối đa
+- Tỷ lệ thành công tự động tối thiểu
+
+--------------------------------------------------
+PROMPT 6: Tạo Phần 5 - Visual Diagrams bằng Mermaid
+--------------------------------------------------
+Phần cuối cùng và rất quan trọng:
+
+**PHẦN 5: VISUAL DIAGRAMS**
+
+Hãy sinh mã Mermaid cho các sơ đồ sau:
+
+5.1 Use Case Diagram
+Vẽ Use Case Diagram thể hiện:
+- Tất cả Actors
+- Tất cả Use Cases chính
+- Mối quan hệ include, extend
+Sử dụng cú pháp Mermaid graph LR hoặc flowchart
+
+5.2 System Sequence Diagram (Happy Path)
+Vẽ sequence diagram cho luồng đăng ký thành công hoàn chỉnh:
+Client App → API Gateway → eKYC Service → OCR Service → Face Service →
+CSDL Quốc gia API → AML Service → Core Banking → Notification Service
+
+5.3 State Diagram cho hồ sơ eKYC
+Vẽ state diagram thể hiện các trạng thái:
+DRAFT → OTP_VERIFIED → OCR_COMPLETED → BIOMETRIC_VERIFIED →
+GOVERNMENT_VERIFIED → AML_CLEARED → ACTIVE
+(Và các trạng thái: FAILED, MANUAL_REVIEW, REJECTED)
+
+5.4 System Architecture Diagram
+Vẽ kiến trúc hệ thống theo layers:
+Client Layer → API Gateway → Microservices Layer → Data Layer → External APIs
+
+Mỗi diagram phải có tiêu đề và mô tả ngắn gọn về mục đích.
+
+--------------------------------------------------
+PROMPT 7: Review và hoàn thiện SRS
+--------------------------------------------------
+Sau khi hoàn thành 5 phần của SRS, hãy thực hiện:
+
+1. **Kiểm tra tính đầy đủ theo checklist IEEE 830:**
+   - [ ] Tất cả FR đều có mã định danh duy nhất
+   - [ ] Tất cả NFR đều có chỉ số đo lường
+   - [ ] Tất cả Use Case đều được liên kết với FR
+   - [ ] Không có requirement nào mâu thuẫn nhau
+
+2. **Tạo Phụ lục:**
+   - Appendix A: Bảng tra cứu Requirement ID
+   - Appendix B: Lịch sử thay đổi tài liệu (Change Log)
+   - Appendix C: Danh sách phê duyệt (Sign-off Sheet)
+
+3. **Đề xuất format Mermaid nào cần render thành ảnh PNG:**
+   Liệt kê các diagram cần xuất ra file ảnh để chèn vào tài liệu Word/PDF.
